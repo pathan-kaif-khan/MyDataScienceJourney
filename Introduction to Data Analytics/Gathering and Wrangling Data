@@ -1,0 +1,41 @@
+## 📘 Learning Log – Data Identification & Collection 
+
+### 🔍 Key Concepts
+
+1. **Start with the Goal**  
+   - The process of identifying data begins by understanding the **objective** of your analysis.
+   - The information you collect should directly support achieving this goal.
+
+2. **Identify Data Sources**  
+   - Once the required data is identified, determine **where to get it from**.
+   - Consider:
+     - The **timeframe** of data needed
+     - The **volume** required for meaningful analysis
+
+3. **Types of Data Sources**  
+   - **Internal vs. External**  
+     - Internal: Data from within the organization  
+     - External: Outside sources such as APIs, public datasets, or purchased data
+   - **Primary, Secondary, Third-party**  
+     - Primary: Collected firsthand (e.g., surveys, experiments)  
+     - Secondary: Existing datasets, reports, publications  
+     - Third-party: Purchased from aggregators or data vendors
+
+4. **Examples of Data Sources**  
+   - Databases  
+   - Web data / APIs  
+   - Social media platforms  
+   - IoT and sensor devices  
+   - Surveys and observational studies  
+   - Data exchanges and marketplaces
+
+5. **Combining Data**  
+   - Use tools and methods (e.g., SQL, ETL pipelines, data warehouses) to **integrate data** 
+into a single interface for analysis.
+
+6. **Considerations for Quality and Ethics**  
+   - The **origin and handling** of data affect:
+     - **Data quality**
+     - **Privacy regulations** (e.g., GDPR, HIPAA)
+     - **Security** protocols
+###
