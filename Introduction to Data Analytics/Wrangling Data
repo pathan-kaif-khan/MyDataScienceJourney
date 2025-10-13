@@ -1,0 +1,56 @@
+# Data Wrangling – Making Data Analysis-Ready
+
+Today I learned about the **Data Wrangling** process, also known as **Data Munging**.
+
+---
+
+## 🔄 What is Data Wrangling?
+
+Data Wrangling is an **iterative process** of preparing raw data for analysis. It includes:
+
+- **Exploration**
+- **Transformation**
+- **Validation**
+
+---
+
+## 🔧 Key Data Transformation Tasks
+
+1. **Structural Manipulation**
+   - Using **joins** and **unions** to combine data from different sources.
+
+2. **Normalization**
+   - Cleaning the database of **unused** or **redundant** data.
+
+3. **Denormalization**
+   - Merging multiple tables into a **single table** for faster querying.
+
+4. **Data Cleaning**
+   - Profiling data to identify issues
+   - Handling:
+     - Missing values
+     - Duplicate records
+     - Irrelevant or inconsistent data
+     - Syntax errors and outliers
+
+5. **Data Enrichment**
+   - Adding **external** or **additional** data points to improve insights and value.
+
+---
+
+## 🛠️ Tools Commonly Used for Data Wrangling
+
+| Tool               | Type          |
+|--------------------|---------------|
+| Excel Power Query  | Spreadsheet   |
+| Google DataPrep    | Cloud-based   |
+| OpenRefine         | Open-source   |
+| Trifacta Wrangler  | Web-based     |
+| Watson Studio      | Enterprise    |
+| Python             | Programming   |
+| R                  | Programming   |
+
+Each tool has its **own strengths**, limitations, and **ideal use cases**.
+
+---
+
