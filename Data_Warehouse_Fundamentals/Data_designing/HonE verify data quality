@@ -1,0 +1,1135 @@
+"Checking row in DimCustomer Table"
+ count 
+-------
+  1000
+(1 row)
+
+"Checking row in FactBilling Table"
+ count  
+--------
+ 132000
+(1 row)
+
+Successfully setup the staging area
+theia@theiadocker-u25039142059:/home/project$ bash setupstagingarea.sh
+Creating the database
+createdb: error: database creation failed: ERROR:  database "billingDW" already exists
+Downloading the data files
+--2025-11-17 10:20:57--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Setting%20up%20a%20staging%20area/billing-datawarehouse.tgz
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 944578 (922K) [application/x-tar]
+Saving to: 'billing-datawarehouse.tgz.2'
+
+billing-datawarehou 100%[=================>] 922.44K  --.-KB/s    in 0.01s   
+
+2025-11-17 10:20:58 (80.5 MB/s) - 'billing-datawarehouse.tgz.2' saved [944578/944578]
+
+Extracting files
+DimCustomer.sql
+DimMonth.sql
+FactBilling.sql
+star-schema.sql
+verify.sql
+Creating schema
+BEGIN
+ERROR:  relation "FactBilling" already exists
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ROLLBACK
+Loading data
+ERROR:  duplicate key value violates unique constraint "DimCustomer_pkey"
+DETAIL:  Key (customerid)=(1) already exists.
+ERROR:  duplicate key value violates unique constraint "DimMonth_pkey"
+DETAIL:  Key (monthid)=(20091) already exists.
+ERROR:  duplicate key value violates unique constraint "FactBilling_pkey"
+DETAIL:  Key (billid)=(1) already exists.
+Finished loading data
+Verifying data
+"Checking row in DimMonth Table"
+ count 
+-------
+   132
+(1 row)
+
+"Checking row in DimCustomer Table"
+ count 
+-------
+  1000
+(1 row)
+
+"Checking row in FactBilling Table"
+ count  
+--------
+ 132000
+(1 row)
+
+Successfully setup the staging area
+theia@theiadocker-u25039142059:/home/project$ ls -l
+total 6028
+-rw-r--r-- 1 theia users   43724 Sep 24  2021 DimCustomer.sql
+-rw-r--r-- 1 theia users    5064 Sep 24  2021 DimMonth.sql
+-rw-r--r-- 1 theia users 3266797 Sep 24  2021 FactBilling.sql
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz.1
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz.2
+-rw-r--r-- 1 theia users     809 Sep 11  2024 setupstagingarea.sh
+-rw-r--r-- 1 theia users    1121 Sep 24  2021 star-schema.sql
+-rw-r--r-- 1 theia users     227 Sep 24  2021 verify.sql
+ing%20Data%20Quality%20for%20a%20Data%20Warehouse/dataqualitychecks.pys/Verifyi
+--2025-11-17 10:23:50--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Verifying%20Data%20Quality%20for%20a%20Data%20Warehouse/dataqualitychecks.py
+
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2054 (2.0K) [application/x-python]
+Saving to: 'dataqualitychecks.py'
+
+dataqualitychecks.p 100%[=================>]   2.01K  --.-KB/s    in 0s      
+
+2025-11-17 10:23:50 (814 MB/s) - 'dataqualitychecks.py' saved [2054/2054]
+
+theia@theiadocker-u25039142059:/home/project$ 
+us.cloud-object-storage.appdomain.cloud/HB0XK4MDrGwigMmVPmPoeQ/dbconnect.pys3.u
+--2025-11-17 10:23:50--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/HB0XK4MDrGwigMmVPmPoeQ/dbconnect.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 504 [application/x-python]
+Saving to: 'dbconnect.py'
+
+dbconnect.py        100%[=================>]     504  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (223 MB/s) - 'dbconnect.py' saved [504/504]
+
+theia@theiadocker-u25039142059:/home/project$ 
+ing%20Data%20Quality%20for%20a%20Data%20Warehouse/mytests.pyetwork/labs/Verifyi
+--2025-11-17 10:23:51--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Verifying%20Data%20Quality%20for%20a%20Data%20Warehouse/mytests.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 748 [text/x-python]
+Saving to: 'mytests.py'
+
+mytests.py          100%[=================>]     748  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (278 MB/s) - 'mytests.py' saved [748/748]
+
+theia@theiadocker-u25039142059:/home/project$ 
+uality-report.pystorage.appdomain.cloud/saTxV8y9Kt-e8Zxe29M0TA/generate-data-qu
+--2025-11-17 10:23:51--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/saTxV8y9Kt-e8Zxe29M0TA/generate-data-quality-report.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1171 (1.1K) [application/x-python]
+Saving to: 'generate-data-quality-report.py'
+
+generate-data-quali 100%[=================>]   1.14K  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (346 MB/s) - 'generate-data-quality-report.py' saved [1171/1171]
+
+theia@theiadocker-u25039142059:/home/project$ 
+theia@theiadocker-u25039142059:/home/project$ ls
+DimCustomer.sql              dbconnect.py
+DimMonth.sql                 generate-data-quality-report.py
+FactBilling.sql              mytests.py
+billing-datawarehouse.tgz    setupstagingarea.sh
+billing-datawarehouse.tgz.1  star-schema.sql
+billing-datawarehouse.tgz.2  verify.sql
+dataqualitychecks.py
+theia@theiadocker-u25039142059:/home/project$ python3 -m pip install psycopg2
+Defaulting to user installation because normal site-packages is not writeable
+Collecting psycopg2
+  Downloading psycopg2-2.9.11.tar.gz (379 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 379.6/379.6 KB 8.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: psycopg2
+  Building wheel for psycopg2 (setup.py) ... done
+  Created wheel for psycopg2: filename=psycopg2-2.9.11-cp310-cp310-linux_x86_64.whl size=499504 sha256=0372ac3d763e884ea9809861e6636237a9d7a2874f125292c64f04478b1a8cfe
+  Stored in directory: /home/theia/.cache/pip/wheels/ef/c7/1c/9c6a8c0c80fc6713248040b66f381cbd07b64ef067ceba5da2
+Successfully built psycopg2
+Installing collected packages: psycopg2
+Successfully installed psycopg2-2.9.11
+dbconnect.pyocker-u25039142059:/home/project$ python3 d
+Error connecting to data warehouse
+connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3;
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Successfully connected to warehouse
+Connection closed
+theia@theiadocker-u25039142059:/home/project$ python3 -m pip install pandas tabulate
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pandas
+  Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 101.1 MB/s eta 0:00:00
+Collecting tabulate
+  Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+Collecting pytz>=2020.1
+  Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 KB 55.6 MB/s eta 0:00:00
+Collecting tzdata>=2022.7
+  Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 KB 50.1 MB/s eta 0:00:00
+Collecting numpy>=1.22.4
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 86.4 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.2
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 KB 37.8 MB/s eta 0:00:00
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.2->pandas) (1.16.0)
+Installing collected packages: pytz, tzdata, tabulate, python-dateutil, numpy, pandas
+Successfully installed numpy-2.2.6 pandas-2.3.3 python-dateutil-2.9.0.post0 pytz-2025.2 tabulate-0.9.0 tzdata-2025.2
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+a.shloud-object-storage.appdomain.cloud/8ZUkKar_boDbhNgMiwGAWg/setupstagingarea
+--2025-11-17 10:17:56--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/8ZUkKar_boDbhNgMiwGAWg/setupstagingarea.sh
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 809 [application/x-sh]
+Saving to: 'setupstagingarea.sh'
+
+setupstagingarea.sh 100%[=================>]     809  --.-KB/s    in 0s      
+
+2025-11-17 10:17:57 (248 MB/s) - 'setupstagingarea.sh' saved [809/809]
+theia@theiadocker-u25039142059:/home/project$ export PGPASSWORD=sHQeTY09VtM28ej4NP2FljB3;
+theia@theiadocker-u25039142059:/home/project$ bashsetupstagingarea.sh
+bash: bashsetupstagingarea.sh: command not found
+theia@theiadocker-u25039142059:/home/project$ bash setupstagingarea.sh
+Creating the database
+createdb: error: database creation failed: ERROR:  database "billingDW" already exists
+Downloading the data files
+--2025-11-17 10:19:59--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Setting%20up%20a%20staging%20area/billing-datawarehouse.tgz
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 944578 (922K) [application/x-tar]
+Saving to: 'billing-datawarehouse.tgz.1'
+
+billing-datawarehou 100%[=================>] 922.44K  --.-KB/s    in 0.01s   
+
+2025-11-17 10:19:59 (66.6 MB/s) - 'billing-datawarehouse.tgz.1' saved [944578/944578]
+
+Extracting files
+DimCustomer.sql
+DimMonth.sql
+FactBilling.sql
+star-schema.sql
+verify.sql
+Creating schema
+BEGIN
+ERROR:  relation "FactBilling" already exists
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ROLLBACK
+Loading data
+ERROR:  duplicate key value violates unique constraint "DimCustomer_pkey"
+DETAIL:  Key (customerid)=(1) already exists.
+ERROR:  duplicate key value violates unique constraint "DimMonth_pkey"
+DETAIL:  Key (monthid)=(20091) already exists.
+ERROR:  duplicate key value violates unique constraint "FactBilling_pkey"
+DETAIL:  Key (billid)=(1) already exists.
+Finished loading data
+Verifying data
+"Checking row in DimMonth Table"
+ count 
+-------
+   132
+(1 row)
+
+"Checking row in DimCustomer Table"
+ count 
+-------
+  1000
+(1 row)
+
+"Checking row in FactBilling Table"
+ count  
+--------
+ 132000
+(1 row)
+
+Successfully setup the staging area
+theia@theiadocker-u25039142059:/home/project$ bash setupstagingarea.sh
+Creating the database
+createdb: error: database creation failed: ERROR:  database "billingDW" already exists
+Downloading the data files
+--2025-11-17 10:20:57--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Setting%20up%20a%20staging%20area/billing-datawarehouse.tgz
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 944578 (922K) [application/x-tar]
+Saving to: 'billing-datawarehouse.tgz.2'
+
+billing-datawarehou 100%[=================>] 922.44K  --.-KB/s    in 0.01s   
+
+2025-11-17 10:20:58 (80.5 MB/s) - 'billing-datawarehouse.tgz.2' saved [944578/944578]
+
+Extracting files
+DimCustomer.sql
+DimMonth.sql
+FactBilling.sql
+star-schema.sql
+verify.sql
+Creating schema
+BEGIN
+ERROR:  relation "FactBilling" already exists
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ROLLBACK
+Loading data
+ERROR:  duplicate key value violates unique constraint "DimCustomer_pkey"
+DETAIL:  Key (customerid)=(1) already exists.
+ERROR:  duplicate key value violates unique constraint "DimMonth_pkey"
+DETAIL:  Key (monthid)=(20091) already exists.
+ERROR:  duplicate key value violates unique constraint "FactBilling_pkey"
+DETAIL:  Key (billid)=(1) already exists.
+Finished loading data
+Verifying data
+"Checking row in DimMonth Table"
+ count 
+-------
+   132
+(1 row)
+
+"Checking row in DimCustomer Table"
+ count 
+-------
+  1000
+(1 row)
+
+"Checking row in FactBilling Table"
+ count  
+--------
+ 132000
+(1 row)
+
+Successfully setup the staging area
+theia@theiadocker-u25039142059:/home/project$ ls -l
+total 6028
+-rw-r--r-- 1 theia users   43724 Sep 24  2021 DimCustomer.sql
+-rw-r--r-- 1 theia users    5064 Sep 24  2021 DimMonth.sql
+-rw-r--r-- 1 theia users 3266797 Sep 24  2021 FactBilling.sql
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz.1
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz.2
+-rw-r--r-- 1 theia users     809 Sep 11  2024 setupstagingarea.sh
+-rw-r--r-- 1 theia users    1121 Sep 24  2021 star-schema.sql
+-rw-r--r-- 1 theia users     227 Sep 24  2021 verify.sql
+ing%20Data%20Quality%20for%20a%20Data%20Warehouse/dataqualitychecks.pys/Verifyi
+--2025-11-17 10:23:50--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Verifying%20Data%20Quality%20for%20a%20Data%20Warehouse/dataqualitychecks.py
+
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2054 (2.0K) [application/x-python]
+Saving to: 'dataqualitychecks.py'
+
+dataqualitychecks.p 100%[=================>]   2.01K  --.-KB/s    in 0s      
+
+2025-11-17 10:23:50 (814 MB/s) - 'dataqualitychecks.py' saved [2054/2054]
+
+theia@theiadocker-u25039142059:/home/project$ 
+us.cloud-object-storage.appdomain.cloud/HB0XK4MDrGwigMmVPmPoeQ/dbconnect.pys3.u
+--2025-11-17 10:23:50--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/HB0XK4MDrGwigMmVPmPoeQ/dbconnect.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 504 [application/x-python]
+Saving to: 'dbconnect.py'
+
+dbconnect.py        100%[=================>]     504  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (223 MB/s) - 'dbconnect.py' saved [504/504]
+
+theia@theiadocker-u25039142059:/home/project$ 
+ing%20Data%20Quality%20for%20a%20Data%20Warehouse/mytests.pyetwork/labs/Verifyi
+--2025-11-17 10:23:51--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Verifying%20Data%20Quality%20for%20a%20Data%20Warehouse/mytests.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 748 [text/x-python]
+Saving to: 'mytests.py'
+
+mytests.py          100%[=================>]     748  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (278 MB/s) - 'mytests.py' saved [748/748]
+
+theia@theiadocker-u25039142059:/home/project$ 
+uality-report.pystorage.appdomain.cloud/saTxV8y9Kt-e8Zxe29M0TA/generate-data-qu
+--2025-11-17 10:23:51--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/saTxV8y9Kt-e8Zxe29M0TA/generate-data-quality-report.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1171 (1.1K) [application/x-python]
+Saving to: 'generate-data-quality-report.py'
+
+generate-data-quali 100%[=================>]   1.14K  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (346 MB/s) - 'generate-data-quality-report.py' saved [1171/1171]
+
+theia@theiadocker-u25039142059:/home/project$ 
+theia@theiadocker-u25039142059:/home/project$ ls
+DimCustomer.sql              dbconnect.py
+DimMonth.sql                 generate-data-quality-report.py
+FactBilling.sql              mytests.py
+billing-datawarehouse.tgz    setupstagingarea.sh
+billing-datawarehouse.tgz.1  star-schema.sql
+billing-datawarehouse.tgz.2  verify.sql
+dataqualitychecks.py
+theia@theiadocker-u25039142059:/home/project$ python3 -m pip install psycopg2
+Defaulting to user installation because normal site-packages is not writeable
+Collecting psycopg2
+  Downloading psycopg2-2.9.11.tar.gz (379 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 379.6/379.6 KB 8.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: psycopg2
+  Building wheel for psycopg2 (setup.py) ... done
+  Created wheel for psycopg2: filename=psycopg2-2.9.11-cp310-cp310-linux_x86_64.whl size=499504 sha256=0372ac3d763e884ea9809861e6636237a9d7a2874f125292c64f04478b1a8cfe
+  Stored in directory: /home/theia/.cache/pip/wheels/ef/c7/1c/9c6a8c0c80fc6713248040b66f381cbd07b64ef067ceba5da2
+Successfully built psycopg2
+Installing collected packages: psycopg2
+Successfully installed psycopg2-2.9.11
+dbconnect.pyocker-u25039142059:/home/project$ python3 d
+Error connecting to data warehouse
+connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3;
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Successfully connected to warehouse
+Connection closed
+theia@theiadocker-u25039142059:/home/project$ python3 -m pip install pandas tabulate
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pandas
+  Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 101.1 MB/s eta 0:00:00
+Collecting tabulate
+  Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+Collecting pytz>=2020.1
+  Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 KB 55.6 MB/s eta 0:00:00
+Collecting tzdata>=2022.7
+  Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 KB 50.1 MB/s eta 0:00:00
+Collecting numpy>=1.22.4
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 86.4 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.2
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 KB 37.8 MB/s eta 0:00:00
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.2->pandas) (1.16.0)
+Installing collected packages: pytz, tzdata, tabulate, python-dateutil, numpy, pandas
+Successfully installed numpy-2.2.6 pandas-2.3.3 python-dateutil-2.9.0.post0 pytz-2025.2 tabulate-0.9.0 tzdata-2025.2
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Successfully connected to warehouse
+Connection closed
+theia@theiadocker-u25039142059:/home/project$ psql -h postgres -U postgres -d postgres
+psql (14.19 (Ubuntu 14.19-0ubuntu0.22.04.1), server 13.2)
+Type "help" for help.
+
+a.shloud-object-storage.appdomain.cloud/8ZUkKar_boDbhNgMiwGAWg/setupstagingarea
+--2025-11-17 10:17:56--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/8ZUkKar_boDbhNgMiwGAWg/setupstagingarea.sh
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 809 [application/x-sh]
+Saving to: 'setupstagingarea.sh'
+
+setupstagingarea.sh 100%[=================>]     809  --.-KB/s    in 0s      
+
+2025-11-17 10:17:57 (248 MB/s) - 'setupstagingarea.sh' saved [809/809]
+theia@theiadocker-u25039142059:/home/project$ export PGPASSWORD=sHQeTY09VtM28ej4NP2FljB3;
+theia@theiadocker-u25039142059:/home/project$ bashsetupstagingarea.sh
+bash: bashsetupstagingarea.sh: command not found
+theia@theiadocker-u25039142059:/home/project$ bash setupstagingarea.sh
+Creating the database
+createdb: error: database creation failed: ERROR:  database "billingDW" already exists
+Downloading the data files
+--2025-11-17 10:19:59--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Setting%20up%20a%20staging%20area/billing-datawarehouse.tgz
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 944578 (922K) [application/x-tar]
+Saving to: 'billing-datawarehouse.tgz.1'
+
+billing-datawarehou 100%[=================>] 922.44K  --.-KB/s    in 0.01s   
+
+2025-11-17 10:19:59 (66.6 MB/s) - 'billing-datawarehouse.tgz.1' saved [944578/944578]
+
+Extracting files
+DimCustomer.sql
+DimMonth.sql
+FactBilling.sql
+star-schema.sql
+verify.sql
+Creating schema
+BEGIN
+ERROR:  relation "FactBilling" already exists
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ROLLBACK
+Loading data
+ERROR:  duplicate key value violates unique constraint "DimCustomer_pkey"
+DETAIL:  Key (customerid)=(1) already exists.
+ERROR:  duplicate key value violates unique constraint "DimMonth_pkey"
+DETAIL:  Key (monthid)=(20091) already exists.
+ERROR:  duplicate key value violates unique constraint "FactBilling_pkey"
+DETAIL:  Key (billid)=(1) already exists.
+Finished loading data
+Verifying data
+"Checking row in DimMonth Table"
+ count 
+-------
+   132
+(1 row)
+
+"Checking row in DimCustomer Table"
+ count 
+-------
+  1000
+(1 row)
+
+"Checking row in FactBilling Table"
+ count  
+--------
+ 132000
+(1 row)
+
+Successfully setup the staging area
+theia@theiadocker-u25039142059:/home/project$ bash setupstagingarea.sh
+Creating the database
+createdb: error: database creation failed: ERROR:  database "billingDW" already exists
+Downloading the data files
+--2025-11-17 10:20:57--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Setting%20up%20a%20staging%20area/billing-datawarehouse.tgz
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 944578 (922K) [application/x-tar]
+Saving to: 'billing-datawarehouse.tgz.2'
+
+billing-datawarehou 100%[=================>] 922.44K  --.-KB/s    in 0.01s   
+
+2025-11-17 10:20:58 (80.5 MB/s) - 'billing-datawarehouse.tgz.2' saved [944578/944578]
+
+Extracting files
+DimCustomer.sql
+DimMonth.sql
+FactBilling.sql
+star-schema.sql
+verify.sql
+Creating schema
+BEGIN
+ERROR:  relation "FactBilling" already exists
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ROLLBACK
+Loading data
+ERROR:  duplicate key value violates unique constraint "DimCustomer_pkey"
+DETAIL:  Key (customerid)=(1) already exists.
+ERROR:  duplicate key value violates unique constraint "DimMonth_pkey"
+DETAIL:  Key (monthid)=(20091) already exists.
+ERROR:  duplicate key value violates unique constraint "FactBilling_pkey"
+DETAIL:  Key (billid)=(1) already exists.
+Finished loading data
+Verifying data
+"Checking row in DimMonth Table"
+ count 
+-------
+   132
+(1 row)
+
+"Checking row in DimCustomer Table"
+ count 
+-------
+  1000
+(1 row)
+
+"Checking row in FactBilling Table"
+ count  
+--------
+ 132000
+(1 row)
+
+Successfully setup the staging area
+theia@theiadocker-u25039142059:/home/project$ ls -l
+total 6028
+-rw-r--r-- 1 theia users   43724 Sep 24  2021 DimCustomer.sql
+-rw-r--r-- 1 theia users    5064 Sep 24  2021 DimMonth.sql
+-rw-r--r-- 1 theia users 3266797 Sep 24  2021 FactBilling.sql
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz.1
+-rw-r--r-- 1 theia users  944578 Aug  3  2022 billing-datawarehouse.tgz.2
+-rw-r--r-- 1 theia users     809 Sep 11  2024 setupstagingarea.sh
+-rw-r--r-- 1 theia users    1121 Sep 24  2021 star-schema.sql
+-rw-r--r-- 1 theia users     227 Sep 24  2021 verify.sql
+ing%20Data%20Quality%20for%20a%20Data%20Warehouse/dataqualitychecks.pys/Verifyi
+--2025-11-17 10:23:50--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Verifying%20Data%20Quality%20for%20a%20Data%20Warehouse/dataqualitychecks.py
+
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2054 (2.0K) [application/x-python]
+Saving to: 'dataqualitychecks.py'
+
+dataqualitychecks.p 100%[=================>]   2.01K  --.-KB/s    in 0s      
+
+2025-11-17 10:23:50 (814 MB/s) - 'dataqualitychecks.py' saved [2054/2054]
+
+theia@theiadocker-u25039142059:/home/project$ 
+us.cloud-object-storage.appdomain.cloud/HB0XK4MDrGwigMmVPmPoeQ/dbconnect.pys3.u
+--2025-11-17 10:23:50--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/HB0XK4MDrGwigMmVPmPoeQ/dbconnect.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 504 [application/x-python]
+Saving to: 'dbconnect.py'
+
+dbconnect.py        100%[=================>]     504  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (223 MB/s) - 'dbconnect.py' saved [504/504]
+
+theia@theiadocker-u25039142059:/home/project$ 
+ing%20Data%20Quality%20for%20a%20Data%20Warehouse/mytests.pyetwork/labs/Verifyi
+--2025-11-17 10:23:51--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Verifying%20Data%20Quality%20for%20a%20Data%20Warehouse/mytests.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 748 [text/x-python]
+Saving to: 'mytests.py'
+
+mytests.py          100%[=================>]     748  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (278 MB/s) - 'mytests.py' saved [748/748]
+
+theia@theiadocker-u25039142059:/home/project$ 
+uality-report.pystorage.appdomain.cloud/saTxV8y9Kt-e8Zxe29M0TA/generate-data-qu
+--2025-11-17 10:23:51--  https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/saTxV8y9Kt-e8Zxe29M0TA/generate-data-quality-report.py
+Resolving cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)... 169.63.118.104, 169.63.118.104
+Connecting to cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud (cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud)|169.63.118.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1171 (1.1K) [application/x-python]
+Saving to: 'generate-data-quality-report.py'
+
+generate-data-quali 100%[=================>]   1.14K  --.-KB/s    in 0s      
+
+2025-11-17 10:23:51 (346 MB/s) - 'generate-data-quality-report.py' saved [1171/1171]
+
+theia@theiadocker-u25039142059:/home/project$ 
+theia@theiadocker-u25039142059:/home/project$ ls
+DimCustomer.sql              dbconnect.py
+DimMonth.sql                 generate-data-quality-report.py
+FactBilling.sql              mytests.py
+billing-datawarehouse.tgz    setupstagingarea.sh
+billing-datawarehouse.tgz.1  star-schema.sql
+billing-datawarehouse.tgz.2  verify.sql
+dataqualitychecks.py
+theia@theiadocker-u25039142059:/home/project$ python3 -m pip install psycopg2
+Defaulting to user installation because normal site-packages is not writeable
+Collecting psycopg2
+  Downloading psycopg2-2.9.11.tar.gz (379 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 379.6/379.6 KB 8.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: psycopg2
+  Building wheel for psycopg2 (setup.py) ... done
+  Created wheel for psycopg2: filename=psycopg2-2.9.11-cp310-cp310-linux_x86_64.whl size=499504 sha256=0372ac3d763e884ea9809861e6636237a9d7a2874f125292c64f04478b1a8cfe
+  Stored in directory: /home/theia/.cache/pip/wheels/ef/c7/1c/9c6a8c0c80fc6713248040b66f381cbd07b64ef067ceba5da2
+Successfully built psycopg2
+Installing collected packages: psycopg2
+Successfully installed psycopg2-2.9.11
+dbconnect.pyocker-u25039142059:/home/project$ python3 d
+Error connecting to data warehouse
+connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3;
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Traceback (most recent call last):
+  File "/home/project/dbconnect.py", line 3, in <module>
+    pgpassword = sHQeTY09VtM28ej4NP2FljB3
+NameError: name 'sHQeTY09VtM28ej4NP2FljB3' is not defined
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Successfully connected to warehouse
+Connection closed
+theia@theiadocker-u25039142059:/home/project$ python3 -m pip install pandas tabulate
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pandas
+  Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 101.1 MB/s eta 0:00:00
+Collecting tabulate
+  Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+Collecting pytz>=2020.1
+  Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 KB 55.6 MB/s eta 0:00:00
+Collecting tzdata>=2022.7
+  Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 KB 50.1 MB/s eta 0:00:00
+Collecting numpy>=1.22.4
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 86.4 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.2
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 KB 37.8 MB/s eta 0:00:00
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.2->pandas) (1.16.0)
+Installing collected packages: pytz, tzdata, tabulate, python-dateutil, numpy, pandas
+Successfully installed numpy-2.2.6 pandas-2.3.3 python-dateutil-2.9.0.post0 pytz-2025.2 tabulate-0.9.0 tzdata-2025.2
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Traceback (most recent call last):
+  File "/home/project/generate-data-quality-report.py", line 16, in <module>
+    conn = psycopg2.connect(
+  File "/home/theia/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.21.210.179), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+theia@theiadocker-u25039142059:/home/project$ python3 dbconnect.py
+Successfully connected to warehouse
+Connection closed
+theia@theiadocker-u25039142059:/home/project$ psql -h postgres -U postgres -d postgres
+psql (14.19 (Ubuntu 14.19-0ubuntu0.22.04.1), server 13.2)
+Type "help" for help.
+
+postgres=# ^C
+postgres=# python3 generate-data-quality-report.py
+postgres-# \q
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Connected to data warehouse
+**************************************************
+Mon Nov 17 10:49:51 2025
+Starting test Check for nulls
+Finished test Check for nulls
+Test Passed True
+Test Parameters
+column = monthid
+table = DimMonth
+
+Duration :  0.00397038459777832
+Mon Nov 17 10:49:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:49:51 2025
+Starting test Check for min and max
+Finished test Check for min and max
+Test Passed True
+Test Parameters
+column = month
+table = DimMonth
+minimum = 1
+maximum = 12
+
+Duration :  0.0018050670623779297
+Mon Nov 17 10:49:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:49:51 2025
+Starting test Check for valid values
+{'Individual', 'Company'}
+Finished test Check for valid values
+Test Passed True
+Test Parameters
+column = category
+table = DimCustomer
+valid_values = {'Individual', 'Company'}
+
+Duration :  0.0033538341522216797
+Mon Nov 17 10:49:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:49:51 2025
+Starting test Check for duplicates
+Finished test Check for duplicates
+Test Passed True
+Test Parameters
+column = monthid
+table = DimMonth
+
+Duration :  0.0023179054260253906
+Mon Nov 17 10:49:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:49:51 2025
+Starting test Check for nulls
+Finished test Check for nulls
+Test Passed True
+Test Parameters
+column = year
+table = DimMonth
+
+Duration :  0.0013201236724853516
+Mon Nov 17 10:49:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:49:51 2025
+Starting test Check for min and max
+Finished test Check for min and max
+Test Passed True
+Test Parameters
+column = quarter
+table = DimMonth
+minimum = 1
+maximum = 4
+
+Duration :  0.0013020038604736328
+Mon Nov 17 10:49:51 2025
+**************************************************
++----+------------------------+-------------+----------+---------------+
+|    | Test Name              | Table       | Column   | Test Passed   |
+|----+------------------------+-------------+----------+---------------|
+|  1 | Check for nulls        | DimMonth    | monthid  | True          |
+|  2 | Check for min and max  | DimMonth    | month    | True          |
+|  3 | Check for valid values | DimCustomer | category | True          |
+|  4 | Check for duplicates   | DimMonth    | monthid  | True          |
+|  5 | Check for nulls        | DimMonth    | year     | True          |
+|  6 | Check for min and max  | DimMonth    | quarter  | True          |
++----+------------------------+-------------+----------+---------------+
+Disconnected from data warehouse
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Connected to data warehouse
+**************************************************
+Mon Nov 17 10:53:38 2025
+Starting test Check for nulls
+Finished test Check for nulls
+Test Passed True
+Test Parameters
+column = monthid
+table = DimMonth
+
+Duration :  0.004288911819458008
+Mon Nov 17 10:53:38 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:53:38 2025
+Starting test Check for min and max
+Finished test Check for min and max
+Test Passed True
+Test Parameters
+column = month
+table = DimMonth
+minimum = 1
+maximum = 12
+
+Duration :  0.0018115043640136719
+Mon Nov 17 10:53:38 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:53:38 2025
+Starting test Check for valid values
+{'Company', 'Individual'}
+Finished test Check for valid values
+Test Passed True
+Test Parameters
+column = category
+table = DimCustomer
+valid_values = {'Company', 'Individual'}
+
+Duration :  0.0033195018768310547
+Mon Nov 17 10:53:38 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:53:38 2025
+Starting test Check for duplicates
+Finished test Check for duplicates
+Test Passed True
+Test Parameters
+column = monthid
+table = DimMonth
+
+Duration :  0.0022873878479003906
+Mon Nov 17 10:53:38 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:53:38 2025
+Starting test Check for nulls
+Finished test Check for nulls
+Test Passed True
+Test Parameters
+column = year
+table = DimMonth
+
+Duration :  0.0015392303466796875
+Mon Nov 17 10:53:38 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:53:38 2025
+Starting test Check for min and max
+Finished test Check for min and max
+Test Passed True
+Test Parameters
+column = quarter
+table = DimMonth
+minimum = 1
+maximum = 4
+
+Duration :  0.0016052722930908203
+Mon Nov 17 10:53:38 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:53:38 2025
+Starting test Check for valid values
+{'Q4', 'Q3', 'Q2', 'Q1'}
+Finished test Check for valid values
+Test Passed True
+Test Parameters
+column = quartername
+table = DimMonth
+valid_values = {'Q3', 'Q4', 'Q1', 'Q2'}
+
+Duration :  0.0013642311096191406
+Mon Nov 17 10:53:38 2025
+**************************************************
++----+------------------------+-------------+-------------+---------------+
+|    | Test Name              | Table       | Column      | Test Passed   |
+|----+------------------------+-------------+-------------+---------------|
+|  1 | Check for nulls        | DimMonth    | monthid     | True          |
+|  2 | Check for min and max  | DimMonth    | month       | True          |
+|  3 | Check for valid values | DimCustomer | category    | True          |
+|  4 | Check for duplicates   | DimMonth    | monthid     | True          |
+|  5 | Check for nulls        | DimMonth    | year        | True          |
+|  6 | Check for min and max  | DimMonth    | quarter     | True          |
+|  7 | Check for valid values | DimMonth    | quartername | True          |
++----+------------------------+-------------+-------------+---------------+
+Disconnected from data warehouse
+theia@theiadocker-u25039142059:/home/project$ 
+theia@theiadocker-u25039142059:/home/project$ python3 generate-data-quality-report.py
+Connected to data warehouse
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for nulls
+Finished test Check for nulls
+Test Passed True
+Test Parameters
+column = monthid
+table = DimMonth
+
+Duration :  0.004276275634765625
+Mon Nov 17 10:54:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for min and max
+Finished test Check for min and max
+Test Passed True
+Test Parameters
+column = month
+table = DimMonth
+minimum = 1
+maximum = 12
+
+Duration :  0.0017001628875732422
+Mon Nov 17 10:54:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for valid values
+{'Individual', 'Company'}
+Finished test Check for valid values
+Test Passed True
+Test Parameters
+column = category
+table = DimCustomer
+valid_values = {'Individual', 'Company'}
+
+Duration :  0.003487110137939453
+Mon Nov 17 10:54:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for duplicates
+Finished test Check for duplicates
+Test Passed True
+Test Parameters
+column = monthid
+table = DimMonth
+
+Duration :  0.002241373062133789
+Mon Nov 17 10:54:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for nulls
+Finished test Check for nulls
+Test Passed True
+Test Parameters
+column = year
+table = DimMonth
+
+Duration :  0.0012543201446533203
+Mon Nov 17 10:54:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for min and max
+Finished test Check for min and max
+Test Passed True
+Test Parameters
+column = quarter
+table = DimMonth
+minimum = 1
+maximum = 4
+
+Duration :  0.0013556480407714844
+Mon Nov 17 10:54:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for valid values
+{'Q2', 'Q1', 'Q4', 'Q3'}
+Finished test Check for valid values
+Test Passed True
+Test Parameters
+column = quartername
+table = DimMonth
+valid_values = {'Q1', 'Q2', 'Q4', 'Q3'}
+
+Duration :  0.0013146400451660156
+Mon Nov 17 10:54:51 2025
+**************************************************
+**************************************************
+Mon Nov 17 10:54:51 2025
+Starting test Check for duplicates
+Finished test Check for duplicates
+Test Passed True
+Test Parameters
+column = customerid
+table = DimCustomer
+
+Duration :  0.0018286705017089844
+Mon Nov 17 10:54:51 2025
+**************************************************
++----+------------------------+-------------+-------------+---------------+
+|    | Test Name              | Table       | Column      | Test Passed   |
+|----+------------------------+-------------+-------------+---------------|
+|  1 | Check for nulls        | DimMonth    | monthid     | True          |
+|  2 | Check for min and max  | DimMonth    | month       | True          |
+|  3 | Check for valid values | DimCustomer | category    | True          |
+|  4 | Check for duplicates   | DimMonth    | monthid     | True          |
+|  5 | Check for nulls        | DimMonth    | year        | True          |
+|  6 | Check for min and max  | DimMonth    | quarter     | True          |
+|  7 | Check for valid values | DimMonth    | quartername | True          |
+|  8 | Check for duplicates   | DimCustomer | customerid  | True          |
++----+------------------------+-------------+-------------+---------------+
+Disconnected from data warehouse
