@@ -26,4 +26,13 @@ def add_num(x,y,z=None, flag=False):
         return x+y
     else:
         return x+y+z
-print flag
+print (add_num(1,2, flag=True))
+
+#Fifth
+def do_math(a,b, kind='add'):
+  if (kind=='add'):
+    return a+b
+  else:
+    return a-b
+
+do_math(1, 2)
