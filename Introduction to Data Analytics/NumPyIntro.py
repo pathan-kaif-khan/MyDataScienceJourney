@@ -64,6 +64,19 @@ print(array9)
 marks=([i,j])
 print("enter the no. of columns",j)"""
 
+#slicing
+# array[start:end:step]
+array10=np.array([-2, 2, 6, 10, 14, 18, 22])
+print(array10[3:5])
+print(array10[::-1])
+#slicing 2D array
+array11=np.array([[ 1, -4, 7,  10],
+                   [ 2,  5, 8, -11],
+                   [ 3, -6,  9,  12]])
+#array11[start_row : stop_row , start_col : stop_col]
+print(array11)
+print(array11[1:3,0:3])
+
 
 
 
